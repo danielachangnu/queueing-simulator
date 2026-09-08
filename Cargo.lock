@@ -78,7 +78,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "queuing-sim"
+name = "queueing-sim"
 version = "0.1.0"
 dependencies = [
  "noisy_float",

@@ -1,5 +1,5 @@
 [package]
-name = "queuing-sim"
+name = "queueing-sim"
 version = "0.1.0"
 authors = ["Daniela Chang <danielachangkim2028@u.northwestern.edu>", "Izzy Grosof <izzy.grosof@northwestern.edu>"]
 edition = "2024"

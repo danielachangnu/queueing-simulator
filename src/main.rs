@@ -1,4 +1,4 @@
-use queuing_sim::{simulate, Config, Dist, Policy};
+use queueing_sim::{simulate, Config, Dist, Policy};
 
 #[cfg(test)]
 const EPSILON: f64 = 1e-8;

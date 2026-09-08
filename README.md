@@ -1,4 +1,4 @@
-This is a queing simulation for a variety of M/G/1 scheduling policies, from simpler 
+This is a queueing simulation for a variety of M/G/1 scheduling policies, from simpler 
 introductory ones such as First Come First Served, to research-level policies such as 
 Nudge. It can be used as a standalone program, as well as a library.  
 

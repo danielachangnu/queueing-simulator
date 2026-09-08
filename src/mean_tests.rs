@@ -74,8 +74,8 @@ fn test_system_littles_law2() {
 mod tests {
     use super::*;
 
-    const seed: u64 = 42;
-    const job_size: usize = 150_000;
+    const SEED: u64 = 42;
+    const JOB_SIZE: usize = 150_000;
     const TOLERANCE: f64 = 0.05;
 
     fn test_config() -> Config {
@@ -86,7 +86,7 @@ mod tests {
     }
 
     fn run_sim(lambda: f64, dist: Dist, policy: Policy) -> f64 {
-        let mut results = simulate(lambda, dist, policy, job_size, seed, &test_config());
+        let mut results = simulate(lambda, dist, policy, JOB_SIZE, SEED, &test_config());
         results.mean_response_time(); // Update the field
         results.mean_response_time // Return the field's value
     }
@@ -100,10 +100,6 @@ mod tests {
         let lcfs = run_sim(lambda, dist, Policy::LCFS);
         let plcfs = run_sim(lambda, dist, Policy::PLCFS);
         let ps = run_sim(lambda, dist, Policy::PS);
-        let las = run_sim(lambda, dist, Policy::LAS);
-        let srpt = run_sim(lambda, dist, Policy::SRPT);
-        let psjf = run_sim(lambda, dist, Policy::PSJF);
-        let lrpt = run_sim(lambda, dist, Policy::LRPT);
 
         //wait time
         assert!((fcfs - 2.0).abs() < TOLERANCE);
@@ -123,10 +119,6 @@ mod tests {
         let lcfs = run_sim(lambda, dist, Policy::LCFS);
         let plcfs = run_sim(lambda, dist, Policy::PLCFS);
         let ps = run_sim(lambda, dist, Policy::PS);
-        let las = run_sim(lambda, dist, Policy::LAS);
-        let srpt = run_sim(lambda, dist, Policy::SRPT);
-        let psjf = run_sim(lambda, dist, Policy::PSJF);
-        let lrpt = run_sim(lambda, dist, Policy::LRPT);
 
         //wait time
         assert!((fcfs - 3.0).abs() < TOLERANCE);
@@ -144,12 +136,6 @@ mod tests {
 
         let fcfs = run_sim(lambda, dist, Policy::FCFS);
         let lcfs = run_sim(lambda, dist, Policy::LCFS);
-        let plcfs = run_sim(lambda, dist, Policy::PLCFS);
-        let ps = run_sim(lambda, dist, Policy::PS);
-        let las = run_sim(lambda, dist, Policy::LAS);
-        let srpt = run_sim(lambda, dist, Policy::SRPT);
-        let psjf = run_sim(lambda, dist, Policy::PSJF);
-        let lrpt = run_sim(lambda, dist, Policy::LRPT);
 
         //wait time
         assert!((fcfs - 1.666).abs() < TOLERANCE);
@@ -163,7 +149,7 @@ mod tests {
         let rho = lambda * e_s;
 
         let dist = Dist::Hyperexponential(0.5, 3.0, 0.8);
-        let mut results = simulate(lambda, dist, Policy::PS, job_size, seed, &test_config());
+        let mut results = simulate(lambda, dist, Policy::PS, JOB_SIZE, SEED, &test_config());
 
         // Update then access field
         results.mean_slowdown();
@@ -181,7 +167,7 @@ mod tests {
         let rho = lambda * e_s;
 
         let dist = Dist::Exponential(e_s);
-        let mut results = simulate(lambda, dist, Policy::PLCFS, job_size, seed, &test_config());
+        let mut results = simulate(lambda, dist, Policy::PLCFS, JOB_SIZE, SEED, &test_config());
 
         // Update then access field
         results.mean_slowdown();

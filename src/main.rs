@@ -1,26 +1,14 @@
-use noisy_float::prelude::*;
-use rand::prelude::*;
-use rand_distr::{Beta, ChiSquared, Exp, InverseGaussian, Normal, Pareto};
-
-use std::f64::INFINITY;
-const EPSILON: f64 = 1e-8;
-use std::f64::consts::PI;
-
 use queuing_sim::{simulate, Config, Dist, Policy};
-use queuing_sim::timing::timing_vec;
+
+#[cfg(test)]
+const EPSILON: f64 = 1e-8;
 
 fn main() {
-   let num_jobs = 10_000_000;
-   let rho = 0.4;
-   let seed = 10;
-   let dist = Dist::Hyperexponential(0.5, 3.0, 0.8);
-   let policies = vec![
-       Policy::Nudge(0.2, false),
-   ];
-
-    timing_vec();
-
-    return;
+    let num_jobs = 10_000_000;
+    let rho = 0.4;
+    let seed = 10;
+    let dist = Dist::Hyperexponential(0.5, 3.0, 0.8);
+    let policies = vec![Policy::Nudge(0.2, false)];
 
     let choice = std::env::args()
         .nth(1)

@@ -1,3 +1,7 @@
+This is a queing simulation for a variety of M/G/1 scheduling policies, from simpler 
+introductory ones such as First Come First Served, to research-level policies such as 
+Nudge. It can be used as a standalone program, as well as a library.  
+
 # Implemented Policies
 - First Come, First Serve (FCFS)
 - Last Come, First Serve (LCFS)
@@ -7,9 +11,9 @@
 - Preemptive Shortest Job First (PSJF)
 - Least Attained Service (LAS)
 - Longest Remaining Processing Time (LRPT)
-- Nudge(Threshold, false)
-- GammaB(gamma)
-- AccumulatingPriority
+- [Nudge (Nudge(Threshold, false))](https://isaacg1.github.io/publications/#nudge)
+- [GammaBoost (GammaB(gamma))](https://ziv.codes/yu_strongly_2024/)
+- [AccumulatingPriority](https://link.springer.com/article/10.1007/s11134-013-9382-6)
 
 
 # Usage
